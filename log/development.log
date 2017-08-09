@@ -7534,3 +7534,90 @@ Completed 200 OK in 14ms (Views: 12.3ms)
 Started GET "/assets/video.mp4" for 127.0.0.1 at 2017-08-09 16:30:50 +0530
 Started GET "/assets/video.mp4" for 127.0.0.1 at 2017-08-09 16:30:50 +0530
 Started GET "/assets/video.mp4" for 127.0.0.1 at 2017-08-09 16:30:51 +0530
+Started GET "/" for 127.0.0.1 at 2017-08-09 16:55:08 +0530
+Processing by DemoController#index as HTML
+  Rendering demo/index.html.slim within layouts/application
+  Rendered demo/index.html.slim within layouts/application (42.4ms)
+Completed 500 Internal Server Error in 540ms
+
+
+  
+ActionView::Template::Error (Unknown line indicator
+  /home/mks/ror_slim_360imageCode/app/views/demo/index.html.slim, Line 2, Column 0
+    .boxed
+    ^
+):
+    1: 
+    2: .boxed
+    3:             h2 Images
+    4:             <div class="container">
+    5:             = image_tag("image.png",alt:'image.jpg', id:"photo",class:"img-thumbnail") 
+  
+app/views/demo/index.html.slim:2
+Started GET "/" for 127.0.0.1 at 2017-08-09 16:55:25 +0530
+Processing by DemoController#index as HTML
+  Rendering demo/index.html.slim within layouts/application
+  Rendered demo/index.html.slim within layouts/application (4.8ms)
+Completed 500 Internal Server Error in 10ms
+
+
+  
+ActionView::Template::Error (Unknown line indicator
+  /home/mks/ror_slim_360imageCode/app/views/demo/index.html.slim, Line 2, Column 0
+    .boxed
+    ^
+):
+    1: 
+    2: .boxed
+    3:             h2 Images
+    4:             <div class="container">
+    5:             = image_tag("image.png",alt:'image.jpg', id:"photo",class:"img-thumbnail") 
+  
+app/views/demo/index.html.slim:2
+Started GET "/" for 127.0.0.1 at 2017-08-09 17:01:47 +0530
+Processing by DemoController#index as HTML
+  Rendering demo/index.html.slim within layouts/application
+  Rendered demo/index.html.slim within layouts/application (252.6ms)
+Completed 200 OK in 388ms (Views: 261.4ms)
+
+
+Started GET "/assets/video-16ec4eebe6c7764521aa506ad35003af31bc1877f18244a0b1fe1d0f484b0254.mp4" for 127.0.0.1 at 2017-08-09 17:01:47 +0530
+Started GET "/assets/video1-d8529aef146cf5531a1a9f16d38ad32033e1ab3beb6682159c28102934e6ba51.mp4" for 127.0.0.1 at 2017-08-09 17:01:47 +0530
+Started GET "/360Deg" for 127.0.0.1 at 2017-08-09 17:01:49 +0530
+Processing by DemoController#360Deg as HTML
+  Rendering demo/360Deg.html.slim within layouts/application
+  Rendered demo/360Deg.html.slim within layouts/application (5.1ms)
+Completed 200 OK in 16ms (Views: 13.1ms)
+
+
+Started GET "/assets/image.jpg" for 127.0.0.1 at 2017-08-09 17:01:49 +0530
+Started GET "/assets/photosphere-logo.gif" for 127.0.0.1 at 2017-08-09 17:01:49 +0530
+Started GET "/assets/image.jpg" for 127.0.0.1 at 2017-08-09 17:01:49 +0530
+Started GET "/" for 127.0.0.1 at 2017-08-09 17:01:57 +0530
+Processing by DemoController#index as HTML
+  Rendering demo/index.html.slim within layouts/application
+  Rendered demo/index.html.slim within layouts/application (26.0ms)
+Completed 200 OK in 46ms (Views: 41.5ms)
+
+
+Started GET "/assets/video-16ec4eebe6c7764521aa506ad35003af31bc1877f18244a0b1fe1d0f484b0254.mp4" for 127.0.0.1 at 2017-08-09 17:01:57 +0530
+Started GET "/assets/video1-d8529aef146cf5531a1a9f16d38ad32033e1ab3beb6682159c28102934e6ba51.mp4" for 127.0.0.1 at 2017-08-09 17:01:57 +0530
+Started GET "/360Deg" for 127.0.0.1 at 2017-08-09 17:01:58 +0530
+Processing by DemoController#360Deg as HTML
+  Rendering demo/360Deg.html.slim within layouts/application
+  Rendered demo/360Deg.html.slim within layouts/application (7.1ms)
+Completed 200 OK in 22ms (Views: 18.1ms)
+
+
+Started GET "/assets/video1.mp4" for 127.0.0.1 at 2017-08-09 17:01:59 +0530
+Started GET "/assets/video1.mp4" for 127.0.0.1 at 2017-08-09 17:01:59 +0530
+Started GET "/assets/video1.mp4" for 127.0.0.1 at 2017-08-09 17:01:59 +0530
+Started GET "/" for 127.0.0.1 at 2017-08-09 17:02:05 +0530
+Processing by DemoController#index as HTML
+  Rendering demo/index.html.slim within layouts/application
+  Rendered demo/index.html.slim within layouts/application (34.6ms)
+Completed 200 OK in 48ms (Views: 46.6ms)
+
+
+Started GET "/assets/video-16ec4eebe6c7764521aa506ad35003af31bc1877f18244a0b1fe1d0f484b0254.mp4" for 127.0.0.1 at 2017-08-09 17:02:05 +0530
+Started GET "/assets/video1-d8529aef146cf5531a1a9f16d38ad32033e1ab3beb6682159c28102934e6ba51.mp4" for 127.0.0.1 at 2017-08-09 17:02:05 +0530
