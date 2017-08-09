@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>360 Degree Video</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
+   <link rel="stylesheet" href="http://qwentic.com/vr/css/bootstrap.min.css">
+   <link rel="stylesheet" href="http://qwentic.com/vr/css/style.css">
+   <script src="http://qwentic.com/vr/js/jquery-1.11.2.min.js"></script>
+   <script src='http://qwentic.com/vr/js/bootstrap.min.js' ></script>
+   
+  <link rel="stylesheet" href="http://qwentic.com/vr/css/photo-sphere-viewer.css">
+  <script src="http://qwentic.com/vr/js/three.min.js"></script>
+  <script src="http://qwentic.com/vr/js/D.min.js"></script>
+  <script src="http://qwentic.com/vr/js/doT.min.js"></script>
+  <script src="http://qwentic.com/vr/js/uevent.min.js"></script>
+  <script src="http://qwentic.com/vr/js/CanvasRenderer.js"></script>
+  <script src="http://qwentic.com/vr/js/Projector.js"></script>
+  <script src="http://qwentic.com/vr/js/photo-sphere-viewer.js"></script>
+  <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/211120/orbitControls.js"></script> 
+     
+
+  <%= csrf_meta_tags %>
+
+ 
+</head>
+<body>
+
+<%= yield %>
+<script type="text/javascript">
+	
+            $(document).ready(function(){
+                $(document).on('click', '#photo', function(){
+                    sessionStorage.type="image";
+                    sessionStorage.fileName = $(this).attr('alt');
+                    window.location.href='360Deg';
+                });
+                 $(document).on('click', '#video', function () {
+                    sessionStorage.type="video";
+                    sessionStorage.fileName = $(this).attr('data');
+                   
+                   window.location.href = '360Deg'; 
+                }); 
+            });
+
+</script>
+<script type="text/javascript">
+   var type = sessionStorage.type;
+          var filename = sessionStorage.fileName;
+          if(type == "video") {
+            var width = 1000;
+            var height = 600;
+            var renderer = new THREE.WebGLRenderer({ antialias: true });
+            renderer.setSize(width, height);
+            document.getElementById('photosphere').appendChild(renderer.domElement);
+            var video = document.createElement('video');
+            video.autoplay = true;
+            video.src = 'assets/'+filename;
+            video.crossOrigin = '';
+            videoTexture = new THREE.Texture(video);
+            videoTexture.minFilter = THREE.LinearFilter;
+            videoTexture.magFilter = THREE.LinearFilter;
+            videoTexture.format = THREE.RGBFormat;
+            var scene = new THREE.Scene();
+            var cubeGeometry = new THREE.SphereGeometry(500, 60, 40);
+            var sphereMat = new THREE.MeshBasicMaterial({ map: videoTexture });
+            sphereMat.side = THREE.BackSide;
+            var cube = new THREE.Mesh(cubeGeometry, sphereMat);
+            scene.add(cube);
+            // var camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 10000);
+            var camera = new THREE.PerspectiveCamera(50, width / height, 0.1, 10000);
+            camera.position.y = 0;
+            camera.position.z = 500;
+            scene.add(camera);
+            var controls = new THREE.OrbitControls(camera);
+            controls.enableDamping = true;
+            controls.dampingFactor = 0.25;
+            controls.enableZoom = false;
+            controls.maxDistance = 500;
+            controls.minDistance = 500;
+            function render() {
+              if (video.readyState === video.HAVE_ENOUGH_DATA) {
+                videoTexture.needsUpdate = true;
+              }
+              controls.update();
+              renderer.render(scene, camera);
+              requestAnimationFrame(render);
+            }
+            render();
+          }else if(type == "image"){
+            var PSV = new PhotoSphereViewer({
+              panorama: 'assets/' + filename,
+              container: 'photosphere',
+              loading_img: 'assets/photosphere-logo.gif',
+              default_fov: 100,
+              mousewheel: false,
+              size: {
+                height: 600
+              }
+            });
+          }
+          $('#back').click(function(){
+            window.location.href = '/';
+          });
+      
+</script>
+</body>
+</html>

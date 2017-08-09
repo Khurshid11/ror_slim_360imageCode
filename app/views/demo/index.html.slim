@@ -1,0 +1,18 @@
+
+.boxed
+            h2 Images
+            <div class="container">
+            = image_tag("image.png",alt:'image.jpg', id:"photo",class:"img-thumbnail") 
+            = image_tag("image1.png",alt:'image1.jpg', id:"photo",class:"img-thumbnail") 
+            = image_tag("image2.png",alt:'image2.jpg', id:"photo",class:"img-thumbnail") 
+            = image_tag("image3.png",alt:'image3.jpg', id:"photo",class:"img-thumbnail") 
+            = image_tag("image4.png",alt:'image4.jpg', id:"photo",class:"img-thumbnail") 
+            </div>
+       
+             h2 Videos
+            = video_tag "video.mp4", :size => "310x300", :controls => true, id: "video", data:"video.mp4",class:"img-thumbnail vid"
+           
+            = video_tag "video1.mp4", :size => "310x300", :controls => true, id:"video", data:"video1.mp4",class:"img-thumbnail" 
+
+        
+       
